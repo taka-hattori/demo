@@ -29,6 +29,6 @@ jobs:
       env:
         OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        CONFIG.MODEL: gpt-3.5-turbo-16k-0613
-#        PR_REVIEWER.EXTRA_INSTRUCTIONS: '日本語でレビューをお願いします'
-#        PR_DESCRIPTION.EXTRA_INSTRUCTIONS: '日本語でレビューをお願いします'
+#        CONFIG.MODEL: gpt-3.5-turbo-16k-0613
+        PR_REVIEWER.EXTRA_INSTRUCTIONS: '日本語でレビューをお願いします'
+        PR_DESCRIPTION.EXTRA_INSTRUCTIONS: '日本語でレビューをお願いします'
