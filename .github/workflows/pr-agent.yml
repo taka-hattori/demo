@@ -18,8 +18,10 @@ jobs:
       run: |
         file_count=${{ steps.pr-changes.outputs.count }}
         line_count=$(git diff --shortstat ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | awk '{print $4}')
-        echo "::set-output name=file_count::$file_count"
-        echo "::set-output name=line_count::$line_count"
+        echo '$file_count'
+        echo '$line_count'
+        echo "file_count=$file_count" >> $GITHUB_OUTPUT
+        echo "line_count=$line_count" >> $GITHUB_OUTPUT
 
     - name: Run PR Agent
       if: ${{ github.event.pull_request.user.login == 'taka-hattori' && steps.count.outputs.line_count < 1000 && steps.count.outputs.file_count < 10 }}
@@ -28,3 +30,5 @@ jobs:
       env:
         OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PR_REVIEWER.EXTRA_INSTRUCTIONS: 'Please use Japanese in descriptions.'
+        PR_DESCRIPTION.EXTRA_INSTRUCTIONS: 'Please use Japanese in descriptions.'
