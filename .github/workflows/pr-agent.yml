@@ -22,12 +22,13 @@ jobs:
         echo "file_count=$file_count" >> $GITHUB_OUTPUT
         echo "line_count=$line_count" >> $GITHUB_OUTPUT
 
-#    - name: Run PR Agent
-#      if: ${{ github.event.pull_request.user.login == 'taka-hattori' && steps.count.outputs.line_count < 1000 && steps.count.outputs.file_count < 10 }}
-#      id: pr-agent
-#      uses: Codium-ai/pr-agent@main
-#      env:
-#        OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        PR_REVIEWER.EXTRA_INSTRUCTIONS: 'Please use Japanese in descriptions.'
-#        PR_DESCRIPTION.EXTRA_INSTRUCTIONS: 'Please use Japanese in descriptions.'
+    - name: Run PR Agent
+      if: ${{ github.event.pull_request.user.login == 'taka-hattori' && steps.count.outputs.line_count < 1000 && steps.count.outputs.file_count < 10 }}
+      id: pr-agent
+      uses: Codium-ai/pr-agent@main
+      env:
+        OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PR_REVIEWER.EXTRA_INSTRUCTIONS: 'Please use Japanese in descriptions.'
+        PR_DESCRIPTION.EXTRA_INSTRUCTIONS: 'Please use Japanese in descriptions.'
+        CONFIG.MODEL: gpt-3.5-turbo-1106
