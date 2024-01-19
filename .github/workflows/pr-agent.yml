@@ -31,4 +31,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PR_REVIEWER.EXTRA_INSTRUCTIONS: 'Please use Japanese in descriptions.'
         PR_DESCRIPTION.EXTRA_INSTRUCTIONS: 'Please use Japanese in descriptions.'
-#        CONFIG.MODEL: gpt-3.5-turbo
+        CONFIG.MODEL: gpt-3.5-turbo-16k-0613
