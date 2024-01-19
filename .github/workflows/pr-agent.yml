@@ -31,4 +31,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PR_REVIEWER.EXTRA_INSTRUCTIONS: '日本語でレビューをお願いします'
         PR_DESCRIPTION.EXTRA_INSTRUCTIONS: '日本語でレビューをお願いします'
-        CONFIG.MODEL: gpt-3.5-turbo-16k
+        CONFIG.MODEL: gpt-3.5-turbo-16k-0613
