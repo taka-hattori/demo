@@ -22,7 +22,7 @@ jobs:
         echo ${{ github.event.pull_request.user.login }}
         echo "${{ github.event.pull_request.base.sha }}"
         echo "${{ github.event.pull_request.head.sha }}"
-        line_count=$(git diff --shortstat ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | awk '{print $4}')
+        line_count=$(git diff --shortstat ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | awk '{print $4+$6}')
         echo "$line_count"
         echo "line_count=$line_count" >> $GITHUB_OUTPUT
 
