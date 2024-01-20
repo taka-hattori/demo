@@ -31,5 +31,5 @@ jobs:
         OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         CONFIG.MODEL: 'gpt-3.5-turbo-16k'
-        PR_REVIEWER.EXTRA_INSTRUCTIONS: '日本語で回答をお願いします。'
-        PR_DESCRIPTION.EXTRA_INSTRUCTIONS: '日本語で回答をお願いします。'
+        PR_REVIEWER.EXTRA_INSTRUCTIONS: 'Please use Japanese'
+        PR_DESCRIPTION.EXTRA_INSTRUCTIONS: 'Please use Japanese'
