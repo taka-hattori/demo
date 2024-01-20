@@ -1,7 +1,7 @@
 name: pr-agent
 on:
   pull_request:
-    types: [opened, reopened, synchronize]
+    types: [opened, reopened, ready_for_review, edited, synchronize]
   issue_comment:
     types: [created, edited]
 
@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Count lines and files
+      if: github.event_name == 'pull_request'
       id: count
       run: |
         file_count=${{ steps.pr-changes.outputs.count }}
