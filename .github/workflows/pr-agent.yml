@@ -24,7 +24,7 @@ jobs:
         echo "line_count=$line_count" >> $GITHUB_OUTPUT
 
     - name: Run PR Agent
-      if: ${{ github.event.pull_request.user.login == 'taka-hattori' && steps.count.outputs.line_count < 1000 && steps.count.outputs.file_count < 10 }}
+#      if: ${{ github.event.pull_request.user.login == 'taka-hattori' && steps.count.outputs.line_count < 1000 && steps.count.outputs.file_count < 10 }}
       id: pr-agent
       uses: Codium-ai/pr-agent@main
       env:
