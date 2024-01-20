@@ -2,7 +2,7 @@ name: pr-agent
 on:
   pull_request:
     types: [opened, reopened, ready_for_review, edited, synchronize]
-
+    
 permissions:
   pull-requests: write
   issues: write
@@ -11,18 +11,19 @@ jobs:
   pr_agent:
     runs-on: ubuntu-latest
     steps:
+    - name: Switch to pull request branch
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
     - name: Count lines and files
       id: count
       run: |
-        file_count=${{ steps.pr-changes.outputs.count }}
+        git fetch origin ${base_branch}:${base_branch}
         line_count=$(git diff --shortstat ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | awk '{print $4}')
-        echo "$file_count $line_count"
-        echo "${{ github.event.pull_request.user.login }}"
-        echo "file_count=$file_count" >> $GITHUB_OUTPUT
         echo "line_count=$line_count" >> $GITHUB_OUTPUT
 
     - name: Run PR Agent
-      if: ${{ github.event.pull_request.user.login == 'taka-hattori' && steps.count.outputs.line_count < 1000 && steps.count.outputs.file_count < 10 }}
+      if: ${{ github.event.pull_request.user.login == 'taka-hattori' && steps.count.outputs.line_count < 1000 && steps.count.outputs.line_count > 0}}
       id: pr-agent
       uses: Codium-ai/pr-agent@main
       env:
