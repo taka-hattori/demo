@@ -29,6 +29,6 @@ jobs:
       env:
         OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PR_REVIEWER.EXTRA_INSTRUCTIONS: 'The output must be translated from English to Japanese.'
-        PR_DESCRIPTION.EXTRA_INSTRUCTIONS: 'The output must be translated from English to Japanese.'
-        PR_CODE_SUGGESTIONS.EXTRA_INSTRUCTIONS: 'The output must be translated from English to Japanese.'
+        PR_REVIEWER.EXTRA_INSTRUCTIONS: 'Please use Japanese in descriptions.'
+        PR_DESCRIPTION.EXTRA_INSTRUCTIONS: 'Please use Japanese in descriptions.'
+        PR_CODE_SUGGESTIONS.EXTRA_INSTRUCTIONS: 'Please use Japanese in descriptions.'
