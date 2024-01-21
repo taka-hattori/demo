@@ -20,7 +20,6 @@ jobs:
       run: |
         git fetch origin ${base_branch}:${base_branch}
         line_count=$(git diff --shortstat ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | awk '{print $4+$6}')
-        echo "$line_count"
         echo "line_count=$line_count" >> $GITHUB_OUTPUT
 
     - name: Run PR Agent
