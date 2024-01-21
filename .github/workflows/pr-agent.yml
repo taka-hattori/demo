@@ -12,13 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     if: contains('taka-hattori,disc99', github.event.pull_request.user.login)
     steps:
-    - name: Switch to pull request branch
-      uses: actions/checkout@v3
+    - name: fetch head branch
+      uses: actions/checkout@v4
       with:
         ref: ${{ github.event.pull_request.head.sha }}
+    - name: fetch base branch
+      run: git fetch origin ${{ github.base_ref }}:${{ github.base_ref }}
     - name: Count lines and files
       id: count
       run: |
-        git fetch origin ${github.base_ref}:${github.base_ref}
         line_count=$(git diff --shortstat ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | awk '{print $4+$6}')
         echo "line_count=$line_count" >> $GITHUB_OUTPUT
