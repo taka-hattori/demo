@@ -10,7 +10,7 @@ permissions:
 jobs:
   pr_agent:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.user.login != 'taka-hattori'
+    if: github.event.pull_request.user.login == 'taka-hattori'
     steps:
     - name: Switch to pull request branch
       uses: actions/checkout@v3
