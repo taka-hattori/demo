@@ -29,5 +29,5 @@ jobs:
         OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         CONFIG.MODEL: 'gpt-3.5-turbo-16k'
-        PR_REVIEWER.EXTRA_INSTRUCTIONS: 'The output must be translated from English to Japanese.'
-        PR_DESCRIPTION.EXTRA_INSTRUCTIONS: 'The output must be translated from English to Japanese.'
+        PR_REVIEWER.EXTRA_INSTRUCTIONS: 'Please use Japanese in descriptions.'
+        PR_DESCRIPTION.EXTRA_INSTRUCTIONS: 'Please use Japanese in descriptions.'
