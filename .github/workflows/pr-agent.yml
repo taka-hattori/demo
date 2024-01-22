@@ -12,12 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     if: contains('taka-hattori,disc99', github.event.pull_request.user.login)
     steps:
-    - name: fetch head branch
+    - name: fetch branches
       uses: actions/checkout@v4
       with:
-        ref: ${{ github.event.pull_request.head.sha }}
-    - name: fetch base branch
-      run: git fetch origin ${{ github.base_ref }}:${{ github.base_ref }}
+        fetch-depth: 0
+        ref: ${{ github.base_ref }}
     - name: Count lines and files
       id: count
       run: |
