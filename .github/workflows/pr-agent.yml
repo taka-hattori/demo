@@ -16,11 +16,6 @@ jobs:
       uses: actions/checkout@v4
       with:
         ref: ${{ github.event.pull_request.head.sha }}
-    - name: fetch base branch_1
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-        ref: ${{ github.base_ref }}
     - name: fetch base branch
       run: git fetch origin ${{ github.base_ref }}:${{ github.base_ref }}
     - name: Count lines and files
